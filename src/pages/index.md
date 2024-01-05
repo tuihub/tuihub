@@ -2,4 +2,6 @@
 id: index
 ---
 
-# [开发人员文档](/docs/developer/)
+## 用户文档敬请期待
+
+## [开发文档](/docs/developer/)

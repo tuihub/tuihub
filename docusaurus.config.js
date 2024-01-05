@@ -95,6 +95,34 @@ const config = {
       },
       footer: {
         style: 'dark',
+    links: [
+      {
+        title: 'Community',
+        items: [
+          {
+            label: 'QQ群: 737582680',
+            href: "https://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=lQezO1qvG0iGMi5PjhIlJo_mzCkXsNmV&group_code=737582680",
+          },
+          {
+            label: 'Telegram',
+            href: 'https://t.me/TuiHub',
+          },
+        ],
+      },
+      {
+        title: 'Side Projects',
+        items: [
+          {
+            label: 'go-vndb',
+            href: 'https://github.com/tuihub/go-vndb',
+          },
+          {
+            label: 'bangumi-db',
+            href: 'https://github.com/tuihub/bangumi-db',
+          },
+        ],
+      },
+    ],
         copyright: `Copyright © ${new Date().getFullYear()} TuiHub Org. Built with Docusaurus.`,
       },
       prism: {
