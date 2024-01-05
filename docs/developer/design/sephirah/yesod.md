@@ -1,7 +1,7 @@
 ---
 id: yesod
 title: 信息流聚合（Yesod）
-sidebar_position: 5
+sidebar_position: 3
 ---
 
 *与常规的RSS阅读器类似，但更加专用，会针对具体平台优化*

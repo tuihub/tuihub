@@ -1,7 +1,7 @@
 ---
 id: tiphereth
 title: 用户与账户（Tiphereth）
-sidebar_position: 2
+sidebar_position: 1
 ---
 
 *用户指本系统内能够登录的角色；账户指第三方系统中的用户*  

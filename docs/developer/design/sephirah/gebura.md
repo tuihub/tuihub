@@ -1,7 +1,7 @@
 ---
 id: gebura
 title: 游戏商店（Gebura）
-sidebar_position: 4
+sidebar_position: 2
 ---
 
 *基本功能与steam等游戏商店相同，以游戏为主软件工具为辅*

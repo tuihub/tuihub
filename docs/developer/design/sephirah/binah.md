@@ -1,7 +1,7 @@
 ---
 id: binah
 title: 文件传输（Binah）
-sidebar_position: 3
+sidebar_position: 4
 ---
 
 *所有需要传输二进制文件的接口均由此模块完成实际的传输工作*

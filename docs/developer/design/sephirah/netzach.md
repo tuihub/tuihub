@@ -1,7 +1,7 @@
 ---
 id: netzach
 title: 消息推送（Netzach）
-sidebar_position: 5
+sidebar_position: 6
 ---
 
 *用户可配置的第三方平台消息推送*

@@ -1,7 +1,7 @@
 ---
 id: chesed
 title: 截图管理（Chesed）
-sidebar_position: 6
+sidebar_position: 5
 ---
 
 *结合OCR的截图管理及搜索*
