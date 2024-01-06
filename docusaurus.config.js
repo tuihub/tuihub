@@ -4,7 +4,7 @@
 // There are various equivalent ways to declare your Docusaurus config.
 // See: https://docusaurus.io/docs/api/docusaurus-config
 
-import {themes as prismThemes} from 'prism-react-renderer';
+import { themes as prismThemes } from 'prism-react-renderer';
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
@@ -34,6 +34,8 @@ const config = {
     locales: ['zh-Hans'],
   },
 
+  staticDirectories: ['static'],
+
   presets: [
     [
       'classic',
@@ -53,7 +55,7 @@ const config = {
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
-          'https://github.com/tuihub/docs/',
+            'https://github.com/tuihub/docs/',
         },
         theme: {
           customCss: './src/css/custom.css',
@@ -61,11 +63,12 @@ const config = {
       }),
     ],
   ],
-  
+
   markdown: {
     mermaid: true,
   },
   themes: ['@docusaurus/theme-mermaid'],
+  plugins: ['docusaurus-plugin-sass'],
 
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
@@ -81,10 +84,15 @@ const config = {
         items: [
           {
             type: 'doc',
-            label: '开发者文档',
-            docId: 'developer/README',
+            label: '用户指南',
+            docId: 'user/index',
           },
-          {to: '/blog', label: 'Blog', position: 'left'},
+          {
+            type: 'doc',
+            label: '开发文档',
+            docId: 'developer/index',
+          },
+          { to: '/blog', label: 'Blog', position: 'left' },
           {
             href: 'https://github.com/tuihub',
             position: 'right',
@@ -95,39 +103,40 @@ const config = {
       },
       footer: {
         style: 'dark',
-    links: [
-      {
-        title: 'Community',
-        items: [
+        links: [
           {
-            label: 'QQ群: 737582680',
-            href: "https://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=lQezO1qvG0iGMi5PjhIlJo_mzCkXsNmV&group_code=737582680",
+            title: 'Community',
+            items: [
+              {
+                label: 'QQ群: 737582680',
+                href: "https://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=lQezO1qvG0iGMi5PjhIlJo_mzCkXsNmV&group_code=737582680",
+              },
+              {
+                label: 'Telegram',
+                href: 'https://t.me/TuiHub',
+              },
+            ],
           },
           {
-            label: 'Telegram',
-            href: 'https://t.me/TuiHub',
+            title: 'Side Projects',
+            items: [
+              {
+                label: 'go-vndb',
+                href: 'https://github.com/tuihub/go-vndb',
+              },
+              {
+                label: 'bangumi-db',
+                href: 'https://github.com/tuihub/bangumi-db',
+              },
+            ],
           },
         ],
-      },
-      {
-        title: 'Side Projects',
-        items: [
-          {
-            label: 'go-vndb',
-            href: 'https://github.com/tuihub/go-vndb',
-          },
-          {
-            label: 'bangumi-db',
-            href: 'https://github.com/tuihub/bangumi-db',
-          },
-        ],
-      },
-    ],
         copyright: `Copyright © ${new Date().getFullYear()} TuiHub Org. Built with Docusaurus.`,
       },
       prism: {
         theme: prismThemes.github,
         darkTheme: prismThemes.dracula,
+        additionalLanguages: ['bash'],
       },
     }),
 };

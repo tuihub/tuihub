@@ -1,0 +1,31 @@
+sephirah:
+  server:
+    grpc:
+      addr: 0.0.0.0:10000
+      timeout: 1s
+    grpc_web:
+      addr: 0.0.0.0:10001
+      timeout: 1s
+  data:
+    database:
+      driver: sqlite3
+  auth:
+    salt: test
+    issuer: test
+    jwt_secret: test
+  mq:
+    driver: memory
+  cache:
+    driver: memory
+mapper:
+  data:
+    cayley:
+      store: memory
+searcher:
+  data:
+    bleve:
+      enable:
+porter:
+  data:
+miner:
+  data:

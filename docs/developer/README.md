@@ -1,6 +1,6 @@
 ---
-id: README
-title: 开发者文档
+id: index
+title: 开发文档
 sidebar_position: 1
 ---
 

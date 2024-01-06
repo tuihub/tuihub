@@ -1,0 +1,40 @@
+version: '3'
+services:
+  server:
+    image: ghcr.io/tuihub/librarian:v0.1.16
+    hostname: "tuihub_librarian"
+    ports:
+      - 127.0.0.1:10000:10000
+      - 127.0.0.1:10001:10001
+    environment:
+      CREATE_ADMIN: true
+      LANGUAGE: zh-CN
+    volumes:
+      - ./server:/data
+    depends_on:
+      - minio
+      - postgres
+  minio:
+    image: quay.io/minio/minio
+    hostname: "tuihub_minio"
+    ports:
+      - 127.0.0.1:10002:9000
+      - 127.0.0.1:10003:9001
+    environment:
+      MINIO_ACCESS_KEY: librarian
+      MINIO_SECRET_KEY: [CHANGE_ME]
+    volumes:
+      - ./minio/data:/data
+      - ./minio/config:/root/.minio/
+    command: server --console-address ':9001' /data
+  postgres:
+    image: postgres
+    hostname: "tuihub_postgres"
+    restart: always
+    ports:
+      - 127.0.0.1:10004:5432
+    volumes:
+      - ./postgres:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: librarian
+      POSTGRES_PASSWORD: [CHANGE_ME]

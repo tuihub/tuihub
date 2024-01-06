@@ -1,0 +1,53 @@
+# This config file is tested with tuihub/librarian:v0.1.16
+sephirah:
+  server:
+    grpc:
+      addr: 0.0.0.0:10000
+      timeout: 1s
+    grpc_web:
+      addr: 0.0.0.0:10001
+      timeout: 1s
+  data:
+    database:
+      driver: postgres
+      host: tuihub_postgres
+      port: 5432
+      dbname: librarian
+      user: librarian
+      password: [CHANGE_ME]
+      no_ssl: true
+  auth:
+    salt: librarian
+    issuer: librarian
+    jwt_secret: librarian
+  mq:
+    driver: sql
+    database:
+      driver: postgres
+      host: tuihub_postgres
+      port: 5432
+      dbname: librarian
+      user: librarian
+      password: [CHANGE_ME]
+      no_ssl: true
+  cache:
+    driver: memory
+mapper:
+  data:
+    cayley:
+      store: sqlite
+searcher:
+  data:
+    bleve:
+      enable:
+porter:
+  data:
+    s3:
+      end_point: tuihub_minio:9000
+      access_key: librarian
+      secret_key: [CHANGE_ME]
+      use_ssl: false
+    steam:
+      api_key: 
+miner:
+  data:
