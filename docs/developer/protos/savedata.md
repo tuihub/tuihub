@@ -3,7 +3,7 @@ id: savedata
 title: 游戏存档
 ---
 
-schema定义：[v1](https://tuihub.github.io/protos/schemas/savedata/v1.json)（[示例](https://tuihub.github.io/protos/schemas/savedata/v1-exmaple.json)），[v2.1](https://tuihub.github.io/protos/schemas/savedata/v2.1.json)（[示例](https://tuihub.github.io/protos/schemas/savedata/v2.1-example.json)）  
+schema定义：[v1](https://tuihub.github.io/protos/schemas/savedata/v1.json)（[示例](https://tuihub.github.io/protos/schemas/savedata/v1-example.json)），[v2.1](https://tuihub.github.io/protos/schemas/savedata/v2.1.json)（[示例](https://tuihub.github.io/protos/schemas/savedata/v2.1-example.json)）  
 推荐使用最新schema
 
 ## Savedata Schema v1 说明

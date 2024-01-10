@@ -61,7 +61,7 @@ sidebar_position: 2
 用户权限：
 - `Admin`和`Normal`能够创建自己的`AppPackageSaveDataConfig`，可以选择公开给其他用户
 
-配置文件为有效的json字符串，schema定义：[v1](https://tuihub.github.io/protos/schemas/savedata/v1.json)（[示例](https://tuihub.github.io/protos/schemas/savedata/v1-exmaple.json)），[v2.1](https://tuihub.github.io/protos/schemas/savedata/v2.1.json)（[示例](https://tuihub.github.io/protos/schemas/savedata/v2.1-example.json)）  
+配置文件为有效的json字符串，schema定义：[v1](https://tuihub.github.io/protos/schemas/savedata/v1.json)（[示例](https://tuihub.github.io/protos/schemas/savedata/v1-example.json)），[v2.1](https://tuihub.github.io/protos/schemas/savedata/v2.1.json)（[示例](https://tuihub.github.io/protos/schemas/savedata/v2.1-example.json)）  
 推荐使用最新schema
 
 ## 游戏存档（AppPackageSaveData）
