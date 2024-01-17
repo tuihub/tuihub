@@ -111,13 +111,14 @@ sidebar_position: 2
 
 - 推荐将游戏二进制文件打包为zip文件并分块（64MiB / chunk），分块方案和7-zip相同（直接按照chunk大小依次拆分文件）
 - 每个具体的文件作为一个chunk，具有单独的`PublicURL`、大小及校验和
-- 使用独立的jwt token进行身份验证，token有效期**不超过24小时**
-- 使用`openresty`或其他web服务器，作为具有验证token功能的静态文件服务器
-- 一个静态文件服务器的token密钥原则上只有一个
+- 使用`ES256`或其他非对称算法，签发独立的jwt token供静态文件服务器验证，有效期**不超过24小时**
+- 使用`openresty`或其他web服务器，作为具有验证token功能的静态文件服务器（可使用[lua-resty-jwt](https://github.com/cdbattags/lua-resty-jwt)）
+- 静态文件服务器使用`Librarian`的公钥验证其签发的jwt token，并在验证通过后给出新的jwt token用于实际chunk下载
 - 静态文件服务器可以有别名，可由`Sentinel`或`Librarian`指定
 
 ### 客户端
 
+- 使用`Librarian`签发的jwt token，通过静态文件服务器的签发URL，获取下载使用的jwt token
 - 下载时可以使用多线程下载，但同一服务器连接数应**小于等于8**
 - 单个chunk下载完成后使用该chunk校验和进行校验，若校验失败应视为文件下载错误并重新下载该chunk
 - （可选）全部chunk下载并校验完成后进行解压
