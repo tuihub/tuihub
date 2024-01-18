@@ -21,15 +21,14 @@ sidebar_position: 1
 
 - 除登录接口外的接口，除特殊规定，均需要`access_token`
 - 在需要认证的请求中设置 Bearer Token，值为该接口要求使用的token
-- 【**需要考虑Web平台的安全性**】客户端可以持久化储存token，但不应尝试解析token
+- 客户端可以持久化储存token，但不应尝试解析token
 
 #### 客户端
 
-1. 客户端通过`GetToken`接口获取`access_token`和`refresh_token`。`access_token`的有效期大约为几个小时，`refresh_token`的有效期大约为几天，客户端不需要关心准确的过期时间
+1. 客户端通过`GetToken`接口获取`access_token`和`refresh_token`。`access_token`的有效期不超过一小时，`refresh_token`的有效期不少于一天，客户端不应关心准确的过期时间
 2. 客户端使用`access_token`访问其他接口
-3. 【**需确认实现难度**】若服务端因`access_token`过期拒绝访问接口，则客户端通过`RefreshToken`接口获取新的`access_token`和`refresh_token`
-4. 若服务端因`refresh_token`过期拒绝给出新token，则客户端回到第一步。若成功获取到新token，则客户端回到第二步
-- 提前调用`RefreshToken`接口不会使旧的`access_token`立即失效，但更旧的`access_token`可能立即失效（根据服务端的安全策略而定）
+3. 若使用`access_token`时拒绝访问，则客户端使用`refresh_token`访问`RefreshToken`接口获取新的`access_token`和`refresh_token`，旧`refresh_token`应被视为失效
+4. 若使用`refresh_token`时拒绝访问，则客户端回到第一步。若成功获取到新token，则客户端回到第二步
 
 #### 服务端
 
