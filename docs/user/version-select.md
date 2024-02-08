@@ -1,7 +1,7 @@
 ---
 id: version-select
 title: 版本选择
-sidebar_position: 3
+sidebar_position: 1
 ---
 
 以下列出了较为稳定的版本组合
