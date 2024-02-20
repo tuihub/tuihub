@@ -28,38 +28,133 @@ sidebar_position: 0
 - `Chesed` 截图管理模块，提供截图管理与搜索功能
 - `Angela` 当功能逻辑需要跨越不同模块实现时，放入此模块中以标识该部分代码具有较高的耦合度
 
-## 结构图
+## 架构总览
 
 ```mermaid
-graph LR
+graph
     subgraph Librarian
         subgraph Sephirah[Sephirah Service]
             Tiphereth[Tiphereth \n handles account data and provides permission verification]
             Gebura[Gebura \n handles application data]
             Binah[Binah \n handles file transfer]
             Yesod[Yesod \n handles feed data]
-            SQLDatabase
+            Netzach[Netzach \n handles notification data]
+            SQL[SQLDatabase]
+            MQ[MessageQueue]
+            OSS[ObjectStorage]
+            Modules --> Tiphereth
+            Modules --> Gebura
+            Modules --> Binah
+            Modules --> Yesod
+            Modules --> Netzach
+            Tiphereth --> SQL
+            Gebura --> SQL
+            Binah --> SQL
+            Yesod --> SQL
+            Netzach --> SQL
+            Tiphereth --> MQ
+            Gebura --> MQ
+            Binah --> MQ
+            Yesod --> MQ
+            Netzach --> MQ
+            Binah --> OSS
         end
         subgraph Mapper Service
             Mapper[Mapper \n encapsulate graph operations]
             GraphDatabase
         end
-        subgraph Porter Service
-            Porter[Porter \n encapsulate input&output operations]
-            ThirdPartyAPI
-        end
         subgraph Searcher Service
             Searcher[Searcher \n encapsulate id generate and search operations]
             SearchEngine
         end
-        Sephirah <-->|Mapper Proto| Mapper
-        Sephirah <-->|Porter Proto| Porter
-        Sephirah <-->|Searcher Proto| Searcher
+        Sephirah --> Mapper
+        Sephirah --> Searcher
     end
-    Proto[Sephirah Proto]
-    Proto <-->|Require Accounts| Tiphereth
-    Proto <-->|Require Applications| Gebura
-    Proto <-->|Require Files| Binah
-    Proto <-->|Require Feeds| Yesod
-    Client <--> Proto
+    subgraph Client
+        Waiter[Waiter \n client application]
+    end
+    subgraph Porter Plugin
+        Porter[Porter \n encapsulate input&output operations]
+        ThirdPartyAPI
+    end
+    Sephirah --> Porter
+    Porter --> Sephirah
+    Client --> Sephirah
+```
+
+## 数据实体关系
+
+```mermaid
+graph
+    subgraph Tiphereth
+        User[User]
+        Account[Account]
+        Sentinel[Sentinel]
+        Device[Device]
+        User -->|Link| Account
+        User --> Sentinel
+        User <-.-> Device
+    end
+
+    subgraph Gebura
+        subgraph AppInfo
+        AppInfoInternal[AppInfo \n internal]
+        AppInfoExternal[AppInfo \n external]
+        AppInfoInternal -->|Bind| AppInfoExternal
+        end
+
+        App[App]
+        AppInst[AppInst]
+        AppBinary[AppBinary]
+        AppRunTime[AppRunTime]
+        AppSaveFile[AppSaveFile]
+        AppCategory[AppCategory]
+        AppInfoInternal --> App
+        AppInfoInternal --> AppBinary
+        App --> AppInst
+        App --> AppSaveFile
+        AppInst --> AppRunTime
+        AppCategory <-.-> AppInfoInternal
+        AppCategory <-.-> App
+    end
+
+    subgraph Yesod
+        FeedConfig[FeedConfig]
+        Feed[Feed]
+        FeedItem[FeedItem]
+        FeedItemCollection[FeedItemCollection]
+        FeedConfig <--> Feed
+        Feed --> FeedItem
+        FeedItemCollection --> FeedItem
+    end
+
+    subgraph Netzach
+        NotifySource[NotifySource]
+        NotifyTarget[NotifyTarget]
+        NotifyFlow[NotifyFlow]
+        NotifyFlow --> NotifySource
+        NotifyFlow --> NotifyTarget
+    end
+
+    subgraph Binah
+        File[File]
+    end
+
+    Account --> AppInfoExternal
+    User -->|Own| App
+    Sentinel --> AppBinary
+    User -->|Own| FeedConfig
+    User -->|Own| NotifyFlow
+    Feed <-.-> NotifySource
+    FeedItemCollection <-.-> NotifySource
+    AppBinary --> File
+    AppSaveFile --> File
+    Device --> AppInst
+
+    
+    subgraph Signs
+        OneWay[One-way arrow] -->|means| oneToN[1:N]
+        TwoWay[Two-way arrow] <-->|means| nToN[1:1]
+        TwoWayDotted[Two-way dotted arrow] <-.->|means| oneToNDotted[N:N]
+    end
 ```
