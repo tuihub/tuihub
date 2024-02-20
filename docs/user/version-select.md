@@ -4,10 +4,31 @@ title: 版本选择
 sidebar_position: 1
 ---
 
-以下列出了较为稳定的版本组合
+## 版本语义
 
-### Alpha 测试
+librarian（服务端） 和 waiter（客户端）的版本号遵循 [语义化版本](https://semver.org/lang/zh-CN/) 规范。  
+
+:::warning
+> 语义化版本控制规范  
+> 4. 主版本号为零（0.y.z）的软件处于开发初始阶段，一切都可能随时被改变。这样的公共 API 不应该被视为稳定版。
+
+目前双端主版本号均为零，只有按照下列推荐的组合使用才能获得最大的兼容性。
+:::
+
+### Alpha
+
+Alpha 版本是用于内部测试的版本。
+
+|librarian|waiter|状态|测试内容|
+|---|---|---|---|
+|||[查看公告预览](next)|游戏管理首次测试|
+|v0.1.16|v0.2.0-alpha.4|正在进行|RSS订阅首次测试|
+
+### Dev
+
+Dev 版本是用于开发者测试的版本。
+**所有未列于上方的版本均视为dev版本**，若非特殊情况不要使用。
 
 |librarian|waiter|
 |---|---|
-|v0.1.16|v0.2.0-alpha.4|
+|[![](https://img.shields.io/github/v/release/tuihub/librarian.svg)](https://github.com/tuihub/librarian/releases/latest)|[![](https://img.shields.io/github/v/release/tuihub/waiter.svg)](https://github.com/tuihub/waiter/releases/latest)|

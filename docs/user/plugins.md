@@ -1,6 +1,6 @@
 ---
 id: plugins
-title: 插件
+title: 服务端插件
 sidebar_position: 3
 ---
 
