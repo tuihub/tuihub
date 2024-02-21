@@ -31,4 +31,4 @@ Dev 版本是用于开发者测试的版本。
 
 |librarian|waiter|
 |---|---|
-|[![](https://img.shields.io/github/v/release/tuihub/librarian.svg)](https://github.com/tuihub/librarian/releases/latest)|[![](https://img.shields.io/github/v/release/tuihub/waiter.svg)](https://github.com/tuihub/waiter/releases/latest)|
+|[![](https://img.shields.io/github/v/release/tuihub/librarian.svg?include_prereleases)](https://github.com/tuihub/librarian/releases/latest)|[![](https://img.shields.io/github/v/release/tuihub/waiter.svg?include_prereleases)](https://github.com/tuihub/waiter/releases/latest)|
