@@ -1,6 +1,6 @@
 ---
 title: 第二次内测公告
-authors: MuZhou233
+authors: muzhou233
 unlisted: true
 ---
 
