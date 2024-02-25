@@ -1,16 +1,22 @@
 ---
-id: install
-title: 安装
-sidebar_position: 2
+title: 使用 Docker 安装
+sidebar_position: 4
 ---
 
 :::danger
 TuiHub尚未发布首个稳定版本，继续安装代表您同意承担任何未知漏洞的风险
 :::
 
-## 使用 docker-compose
+TuiHub 在 GitHub 上提供了 Docker 镜像，在使用 Docker 安装之前请检查您的服务器能够访问 [ghcr](ghcr.io)。
 
-[安装 docker-compose](https://docs.docker.com/compose/install/)
+## 安装 Docker 及 Docker Compose
+
+请遵循官方文档安装 Docker 及 Docker Compose：
+
+- [安装 Docker](https://docs.docker.com/get-docker/)
+- [安装 Docker Compose](https://docs.docker.com/compose/install/)
+
+## 使用模板
 
 ```bash
 mkdir tuihub && cd tuihub
@@ -21,7 +27,3 @@ curl -o docker-compose.yml https://docs.tuihub.org/templates/docker-compose.yml
 nano docker-compose.yml # Review and set password
 docker compose up -d
 ```
-
-## 自定义安装
-
-服务端的所有依赖都是可选的，除了上面使用的[生产环境配置文件](https://docs.tuihub.org/templates/production.yml)，我们还提供无依赖启动的[测试环境配置文件](https://docs.tuihub.org/templates/config.yml)，你可以根据需要进行修改

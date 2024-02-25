@@ -48,14 +48,14 @@ const config = {
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
-            'https://github.com/tuihub/docs/',
+            'https://github.com/tuihub/docs/tree/master/',
         },
         blog: {
           showReadingTime: true,
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
-            'https://github.com/tuihub/docs/',
+            'https://github.com/tuihub/docs/tree/master/',
         },
         theme: {
           customCss: './src/css/custom.css',
@@ -92,7 +92,7 @@ const config = {
             label: '开发文档',
             docId: 'developer/index',
           },
-          { to: '/blog', label: 'Blog', position: 'left' },
+          { to: '/blog', label: '博客', position: 'left' },
           {
             href: 'https://github.com/tuihub',
             position: 'right',

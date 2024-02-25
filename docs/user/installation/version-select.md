@@ -1,7 +1,6 @@
 ---
-id: version-select
 title: 版本选择
-sidebar_position: 1
+sidebar_position: 2
 ---
 
 ## 版本语义
@@ -15,13 +14,15 @@ librarian（服务端） 和 waiter（客户端）的版本号遵循 [语义化�
 目前双端主版本号均为零，只有按照下列推荐的组合使用才能获得最大的兼容性。
 :::
 
+## 可选版本
+
 ### Alpha
 
 Alpha 版本是用于内部测试的版本，内部测试使用官方提供的服务器，面向开发人员和志愿者。
 
 |librarian|waiter|状态|测试内容|
 |---|---|---|---|
-|||[查看公告预览](upcoming)|游戏管理首次测试|
+|||[查看公告预览](../../../blog/alpha/upcoming)|游戏管理首次测试|
 |v0.1.16|v0.2.0-alpha.4|正在进行|RSS订阅首次测试|
 
 ### Dev
