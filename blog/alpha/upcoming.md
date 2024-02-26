@@ -8,6 +8,8 @@ unlisted: true
 
 <!-- truncate -->
 
+**本次测试适用[通用内测规范](../../../docs/user/contributing/alpha-test)**
+
 ## 测试内容
 
 本次测试的主要内容是应用管理功能，这也是该功能的首次测试。在本次测试中，我们将会测试以下功能：
