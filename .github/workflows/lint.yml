@@ -1,0 +1,35 @@
+name: lint
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: 20
+      - name: Install dependencies
+        run: npm install
+      - name: Lint
+        run: |
+          npm run lint
+          npm run lint:sc
+      - name: Check for changes
+        run: |
+          git diff --exit-code
+          if [ $? -eq 0 ]; then
+            echo "No formatting changes detected"
+          else
+            echo "Formatting changes detected. Run `npm run lint` and `npm run lint:sc` to fix it."
+            exit 1
+          fi

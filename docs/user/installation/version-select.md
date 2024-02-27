@@ -23,13 +23,13 @@ Alpha 版本是用于内部测试的版本，内部测试使用官方提供的�
 |librarian|waiter|状态|测试内容|
 |---|---|---|---|
 |||[查看公告预览](../../../blog/alpha/upcoming)|游戏管理首次测试|
-|v0.1.16|v0.2.0-alpha.4|正在进行|RSS订阅首次测试|
+|v0.1.16|v0.2.0-alpha.4|正在进行|RSS 订阅首次测试|
 
 ### Dev
 
 Dev 版本是用于开发者测试的版本。
-**所有未列于上方的版本均视为dev版本**，若非特殊情况不要使用。
+**所有未列于上方的版本均视为 dev 版本**，若非特殊情况不要使用。
 
 |librarian|waiter|
 |---|---|
-|[![](https://img.shields.io/github/v/release/tuihub/librarian.svg?include_prereleases)](https://github.com/tuihub/librarian/releases/latest)|[![](https://img.shields.io/github/v/release/tuihub/waiter.svg?include_prereleases)](https://github.com/tuihub/waiter/releases/latest)|
+|[![服务端最新版本](https://img.shields.io/github/v/release/tuihub/librarian.svg?include_prereleases)](https://github.com/tuihub/librarian/releases/latest)|[![客户端最新版本](https://img.shields.io/github/v/release/tuihub/waiter.svg?include_prereleases)](https://github.com/tuihub/waiter/releases/latest)|

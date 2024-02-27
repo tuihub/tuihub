@@ -33,4 +33,5 @@ sidebar_position: 1
 解绑只删除绑定关系，不删除账户数据
 
 用户权限：
+
 - `Admin`、`Normal`均可绑定与解绑账户

@@ -16,7 +16,7 @@ title: 持续集成
 
 ### [golangci-lint](https://github.com/golangci/golangci-lint)
 
-Go 语言的 linter 大集合，~~你想要的这里都有~~，通过CI运行，需要花一些时间配置，配置好以后可以解决很多问题，配置参考[Golden config for golangci-lint](https://gist.github.com/maratori/47a4d00457a92aa426dbd48a18776322)
+Go 语言的 linter 大集合，~~你想要的这里都有~~，通过 CI 运行，需要花一些时间配置，配置好以后可以解决很多问题，配置参考[Golden config for golangci-lint](https://gist.github.com/maratori/47a4d00457a92aa426dbd48a18776322)
 
 ### [Codecov](https://about.codecov.io/)
 
@@ -24,7 +24,7 @@ Go 语言的 linter 大集合，~~你想要的这里都有~~，通过CI运行，
 
 ### [Renovate](https://github.com/renovatebot/renovate)
 
-自动依赖更新，需要花时间配置，比起GitHub的Dependabot好用很多
+自动依赖更新，需要花时间配置，比起 GitHub 的 Dependabot 好用很多
 
 ### [CodeQL analysis](https://github.com/github/codeql-action/)
 

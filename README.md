@@ -1,4 +1,4 @@
-![](./static/img/social-card.jpg)
+![TuiHub Logo](./static/img/social-card.jpg)
 
 # [docs.tuihub.org](https://docs.tuihub.org)
 
@@ -9,4 +9,15 @@ For local preview, install node.js and run:
 ```bash
 npm install
 npm start
+```
+
+## Linting
+
+To lint the markdown files, run:
+
+```bash
+# CommonMark
+npm run lint
+# Simplified Chinese document writing standard
+npm run lint:sc
 ```

@@ -15,7 +15,7 @@ sidebar_position: 1
 
 部署及维护服务端需要一定的技术基础，这是作为自托管软件难以避免的。
 
-任何具有 Linux 及 Docker 基础的人都应能轻松部署服务端，详见[安装](../installation/)及[管理](../administration/)章节。    
+任何具有 Linux 及 Docker 基础的人都应能轻松部署服务端，详见[安装](../installation/)及[管理](../administration/)章节。
 
 如果您有任何问题，请参见[帮助](../help/)章节。
 

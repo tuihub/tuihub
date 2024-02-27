@@ -7,9 +7,9 @@ title: 持续集成
 
 ## 自动代码生成
 
-Protobuffer文件更新后使用[buf](https://buf.build/)进行格式检查及代码生成，生成的代码会被提交至仓库
+Protobuffer 文件更新后使用[buf](https://buf.build/)进行格式检查及代码生成，生成的代码会被提交至仓库
 
-- 修改接口定义时只需要修改protobuffer文件
+- 修改接口定义时只需要修改 protobuffer 文件
 - 任何影响接口定义的修改的提交信息都应以`feat:`或`fix:`开头
 - 在推送新提交时不需要等待上一次的代码生成完成
 
