@@ -106,14 +106,14 @@ graph
         App[App]
         AppInst[AppInst]
         AppBinary[AppBinary]
-        AppRunTime[AppRunTime]
+        AppInstRunTime[AppInstRunTime]
         AppSaveFile[AppSaveFile]
         AppCategory[AppCategory]
         AppInfoInternal --> App
         AppInfoInternal --> AppBinary
         App --> AppInst
         App --> AppSaveFile
-        AppInst --> AppRunTime
+        AppInst --> AppInstRunTime
         AppCategory <-.-> AppInfoInternal
         AppCategory <-.-> App
     end
@@ -142,13 +142,13 @@ graph
 
     Account --> AppInfoExternal
     User -->|Own| App
+    User --> AppInfo
     Sentinel --> AppBinary
     User -->|Own| FeedConfig
     User -->|Own| NotifyFlow
     Feed <-.-> NotifySource
     FeedItemCollection <-.-> NotifySource
-    AppBinary --> File
-    AppSaveFile --> File
+    AppSaveFile <--> File
     Device --> AppInst
 
     
