@@ -8,7 +8,7 @@ sidebar_position: 1
 :::
 
 :::warning
-目前我们出于测试目的提供短期删档服，这是目前推荐的使用方式，查看[内测文档](contributing/alpha-test)及加入官方社群获取更多信息
+目前我们出于测试目的提供短期删档服，这是目前推荐的使用方式，查看[内测文档](../contributing/alpha-test)及加入官方社群获取更多信息
 :::
 
 ## 管理员
