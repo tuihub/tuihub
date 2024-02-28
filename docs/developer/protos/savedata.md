@@ -6,7 +6,9 @@ title: 游戏存档
 schema 定义：[v1](https://tuihub.github.io/protos/schemas/savedata/v1.json)（[示例](https://tuihub.github.io/protos/schemas/savedata/v1-example.json)），[v2.1](https://tuihub.github.io/protos/schemas/savedata/v2.1.json)（[示例](https://tuihub.github.io/protos/schemas/savedata/v2.1-example.json)）  
 推荐使用最新 schema
 
-## Savedata Schema v1 说明
+## Savedata Schema 说明
+
+### Savedata Schema v1 说明
 
 - 配置文件必须声明`$schema`，其值为该配置对应的 Json Schema URL
 - 配置文件中不应出现 schema 定义以外的值
@@ -19,7 +21,7 @@ schema 定义：[v1](https://tuihub.github.io/protos/schemas/savedata/v1.json)�
   - `path`路径信息，内容必须为有效的路径（Windows 平台下使用 Windows 平台格式，相对路径分隔符使用正斜杠`/`），若为文件则以文件名结尾，若为文件夹则以`/`结尾
   - `id`唯一标识符，生成的备份文件中应当有一个同名文件夹，文件夹内容为依据本`entry`定义应当备份的文件
 
-## Savedata Schema v2.1 说明
+### Savedata Schema v2.1 说明
 
 - 配置文件必须声明`$schema`，其值为该配置对应的 Json Schema URL
 - 配置文件中不应出现 schema 定义以外的值
@@ -38,3 +40,61 @@ schema 定义：[v1](https://tuihub.github.io/protos/schemas/savedata/v1.json)�
     - `pattern`为匹配的具体规则，允许`*`和`?`，不支持正则表达式，具体规则和`.NET 5+`中`System.IO.Directory.EnumerateFiles`方法中`searchPattern`的处理规则相同（[文档链接](https://learn.microsoft.com/en-us/dotnet/api/system.io.directory.enumeratefiles?view=net-8.0)）
     - `exclude`项将会最后处理，以保证所有`exclude`项不会出现在最终存档中
   - `clearBaseDirBeforeRestore`项为是否在还原存档前清空该`entry`的起始路径目录
+
+## 常见游戏引擎
+
+### Ethornell/BGI
+
+识别方法：
+
+  - 文件说明`Ethornell - BURIKO General Interpreter`
+  - 文件版本1.xxx.x.x（x为任意0-9数字）
+  - 合法商标`BURIKO General Interpreter`
+  - 原始文件名`BGI.exe`
+  - 游戏安装目录下或安装目录下的`Archive`文件夹下有大量`data0xxxx.arc`文件（x为任意0-9数字），可能还有`BHVC.exe`，`system.arc`，`sysgrp.arc`，`sysprg.arc`等文件
+
+存档位置：
+
+  - 一般为一个文件（储存进度、设置等）和一个文件夹（文件对应存档槽位）
+  - 文件一般在游戏安装目录下的`BGI.gdb`，部分汉化程序可能会更改名称（如`BGI.chs`等）
+  - 文件夹一般在游戏安装目录下`UserData`文件夹，部分汉化程序可能会更改名称（如`Data_CHS`等）
+
+### Kirikiri 2/Z
+
+### SiglusEngine
+
+### TyranoScript
+
+### Artemis
+
+### CatSystem2
+
+### QLIE
+
+### Entis GLS
+
+### SoftPal
+
+### YU-RIS
+
+### Ren'Py
+
+### AdvHD
+
+### yuka script
+
+### adv32/Circus
+
+### Whale/mirai
+
+### Silky Engine
+
+### ???/Giga
+
+### Shiina Rio
+
+### RPG Maker MV/MZ
+
+### RPG Maker XP/Vx/VxAce
+
+### Wolf RPG
