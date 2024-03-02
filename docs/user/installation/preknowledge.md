@@ -7,7 +7,11 @@ sidebar_position: 1
 
 ## 操作系统
 
-服务端支持 `Windows` `Linux` `MacOS` 系统的 `x86_64` 及 `arm64` 架构。
+服务端支持的操作系统及架构如下：
+
+- Windows `x86_64` `arm64`
+- Linux `x86_64` `arm64` （提供 Docker 镜像）
+- macOS `x86_64` `arm64`
 
 ## 依赖服务
 
@@ -31,7 +35,8 @@ SQL 数据库用于保存服务端数据，
 消息队列用于消除请求尖峰，提高服务端稳定性，
 目前支持的消息队列有：
 
-- PostgreSQL - 可以与 SQL 数据库共用同一个库
+- Redis - 仅在使用 Redis 缓存时可用
+- PostgreSQL - 仅在使用 PostgreSQL 数据库时可用，严重影响数据库性能
 - memory - 与没有消息队列等效
 
 ### 缓存
