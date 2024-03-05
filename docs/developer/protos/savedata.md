@@ -56,8 +56,10 @@ schema 定义：[v1](https://tuihub.github.io/protos/schemas/savedata/v1.json)�
 程序化识别：
 
 ```csharp
+using System.Diagnostics;
+using System.Text.RegularExpressions;
 // filePath is path to executable
-static bool IsBgi(string filePath)
+public static bool IsBgi(string filePath)
 {
     var versionInfo = FileVersionInfo.GetVersionInfo(filePath);
     bool result = versionInfo.FileDescription == "Ethornell - BURIKO General Interpreter"
