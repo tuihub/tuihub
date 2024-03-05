@@ -1,0 +1,31 @@
+{
+  "$schema": "https://tuihub.github.io/protos/schemas/savedata/v2.1.json",
+  "platform": "windows",
+  "entries": [
+    {
+      "id": 1,
+      "baseDirMode": "gameRoot",
+      "baseDir": ".",
+      "filePatterns": [
+        {
+          "type": "include",
+          "pattern": "BGI.gdb"
+        }
+      ],
+      "clearBaseDirBeforeRestore": false
+    },
+    {
+      "id": 2,
+      "baseDirMode": "gameRoot",
+      "baseDir": ".\\UserData",
+      "filePatterns": [
+        {
+          "type": "include",
+          "pattern": "*"
+        }
+      ],
+      "clearBaseDirBeforeRestore": true
+    }
+  ],
+  "caseSensitive": false
+}

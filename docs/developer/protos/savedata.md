@@ -53,11 +53,48 @@ schema 定义：[v1](https://tuihub.github.io/protos/schemas/savedata/v1.json)�
   - 原始文件名`BGI.exe`
   - 游戏安装目录下或安装目录下的`Archive`文件夹下有大量`data0xxxx.arc`文件（x为任意0-9数字），可能还有`BHVC.exe`，`system.arc`，`sysgrp.arc`，`sysprg.arc`等文件
 
+程序化识别：
+
+```csharp
+// filePath is path to executable
+static bool IsBgi(string filePath)
+{
+    var versionInfo = FileVersionInfo.GetVersionInfo(filePath);
+    bool result = versionInfo.FileDescription == "Ethornell - BURIKO General Interpreter"
+        || versionInfo.InternalName == "Ethornell"
+        || versionInfo.LegalTrademarks == "BURIKO General Interpreter"
+        || versionInfo.OriginalFilename == "BGI.exe";
+    if (!result)
+    {
+        var dirPath = Path.GetDirectoryName(filePath);
+        if (dirPath == null) { return false; }
+        var matches = 0;
+        var files = Directory.EnumerateFiles(dirPath, "*.*", new EnumerationOptions
+        {
+            RecurseSubdirectories = true,
+            MaxRecursionDepth = 1
+        });
+        var matchFileNames = new string[] { "BGI.exe", "BHVC.exe", "BGI.hvl", "sysgrp.arc", "sysprg.arc", "system.arc" };
+        matches += files.Where(f => matchFileNames.Contains(Path.GetFileName(f))).Count();
+        if (matches < 3)
+        {
+            Regex regex = new(@"^data[0-9]{3,5}\.arc$");
+            matches += files.Where(f => (Path.GetDirectoryName(f) == dirPath || Path.GetFileName(dirPath) == "Archive")
+                && regex.IsMatch(Path.GetFileName(f))).Count();
+        }
+        result = matches >= 3;
+    }
+    return result;
+}
+```
+
 存档位置：
 
   - 一般为一个文件（储存进度、设置等）和一个文件夹（文件对应存档槽位）
   - 文件一般在游戏安装目录下的`BGI.gdb`，部分汉化程序可能会更改名称（如`BGI.chs`等）
   - 文件夹一般在游戏安装目录下`UserData`文件夹，部分汉化程序可能会更改名称（如`Data_CHS`等）
+
+存档配置文件示例：[链接](https://docs.tuihub.org/savedata-configs/bgi.json)
 
 ### Kirikiri 2/Z
 
