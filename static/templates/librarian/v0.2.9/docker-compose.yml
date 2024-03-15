@@ -1,0 +1,110 @@
+version: '3'
+services:
+  client:
+    image: ghcr.io/tuihub/waiter:v0.2.2-alpha.1
+    ports:
+      - 127.0.0.1:10009:80
+    networks:
+      - tuihub
+    volumes:
+      - ./.env:/usr/share/nginx/html/assets/.env
+  server:
+    image: ghcr.io/tuihub/librarian:v0.2.9
+    hostname: "librarian"
+    ports:
+      - 127.0.0.1:10000:10000
+      - 127.0.0.1:10001:10001
+    networks:
+      - tuihub
+    environment:
+      LANGUAGE: zh-CN
+      ALLOW_REGISTER: true
+    volumes:
+      - ./server:/data
+    depends_on:
+      - minio
+      - postgres
+      - consul
+  tuihub-steam:
+    image: ghcr.io/tuihub/tuihub-steam:latest
+    hostname: "tuihub-steam"
+    networks:
+      - tuihub
+    ports:
+      - 127.0.0.1:10007:10007
+    environment:
+      SERVER_ADDRESS: 0.0.0.0:10007
+      CONSUL_ADDRESS: consul:8500
+      STEAM_API_KEY: [CHANGE_ME]
+      LANGUAGE: zh-CN
+    depends_on:
+      - consul
+  tuihub-rss:
+    image: ghcr.io/tuihub/tuihub-rss:latest
+    hostname: "tuihub-rss"
+    networks:
+      - tuihub
+    ports:
+      - 127.0.0.1:10008:10008
+    environment:
+      SERVER_ADDRESS: 0.0.0.0:10008
+      CONSUL_ADDRESS: consul:8500
+    depends_on:
+      - consul
+  minio:
+    image: quay.io/minio/minio
+    hostname: "minio"
+    restart: unless-stopped
+    ports:
+      - 127.0.0.1:10002:9000
+      - 127.0.0.1:10003:9001
+    networks:
+      - tuihub
+    environment:
+      MINIO_ACCESS_KEY: librarian
+      MINIO_SECRET_KEY: [CHANGE_ME]
+    volumes:
+      - ./minio/data:/data
+      - ./minio/config:/root/.minio/
+    command: server --console-address ':9001' /data
+  postgres:
+    image: postgres
+    hostname: "postgres"
+    restart: unless-stopped
+    ports:
+      - 127.0.0.1:10004:5432
+    networks:
+      - tuihub
+    volumes:
+      - ./postgres:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: librarian
+      POSTGRES_PASSWORD: [CHANGE_ME]
+  consul:
+    image: consul:1.15
+    hostname: "consul"
+    restart: unless-stopped
+    ports:
+      - 127.0.0.1:10005:8500
+    networks:
+      - tuihub
+    command: "agent -dev -server -client=0.0.0.0 -ui"
+  redis:
+    image: redis:alpine
+    hostname: "redis"
+    restart: unless-stopped
+    ports:
+      - 127.0.0.1:10006:6379
+    networks:
+      - tuihub
+  meilisearch:
+    image: getmeili/meilisearch:v1.3
+    hostname: "meilisearch"
+    environment:
+      MEILI_DB_PATH: /meili_data
+    ports:
+      - 127.0.0.1:10010:7700
+    volumes:
+      - ./meili:/meili_data
+networks:
+  tuihub:

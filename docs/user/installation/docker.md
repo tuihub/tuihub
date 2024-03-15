@@ -16,14 +16,22 @@ TuiHub 在 GitHub 上提供了 Docker 镜像，在使用 Docker 安装之前请�
 - [安装 Docker](https://docs.docker.com/get-docker/)
 - [安装 Docker Compose](https://docs.docker.com/compose/install/)
 
-## 使用模板
+## 下载模板
 
 ```bash
 mkdir tuihub && cd tuihub
-mkdir -p server/conf minio postgres
-curl -o server/conf/config.yml https://docs.tuihub.org/templates/production.yml
-nano server/conf/config.yml # Review and set password
-curl -o docker-compose.yml https://docs.tuihub.org/templates/docker-compose.yml
+mkdir -p server/conf minio postgres meili
+curl -o docker-compose.yml https://docs.tuihub.org/templates//librarian/v0.2.9/docker-compose.yml
+curl -o server/conf/config.yml https://docs.tuihub.org/templates//librarian/v0.2.9/config.yml
+curl -o .env https://docs.tuihub.org/templates//librarian/v0.2.9/.env
 nano docker-compose.yml # Review and set password
+nano server/conf/config.yml # Review and set password
+nano .env # Review and set client env
+docker compose up -d
+```
+
+## 启动服务
+
+```bash
 docker compose up -d
 ```

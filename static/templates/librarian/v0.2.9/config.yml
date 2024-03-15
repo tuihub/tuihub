@@ -1,0 +1,46 @@
+server:
+  grpc:
+    addr: 0.0.0.0:10000
+    timeout: 1s
+  grpc_web:
+    addr: 0.0.0.0:10001
+    timeout: 1s
+  info:
+    name:
+    description:
+    website_url:
+    logo_url:
+    background_url:
+database:
+  driver: postgres
+  host: postgres
+  port: 5432
+  dbname: librarian
+  user: librarian
+  password: [CHANGE_ME]
+  no_ssl: true
+s3:
+  end_point: minio:9000
+  access_key: librarian
+  secret_key: [CHANGE_ME]
+  use_ssl: false
+auth:
+  salt: [CHANGE_ME]
+  issuer: [CHANGE_ME]
+  jwt_secret: [CHANGE_ME]
+mq:
+  driver: redis
+cache:
+  driver: redis
+  addr: redis:6379
+consul:
+  addr: consul:8500
+sentry:
+  dsn:
+  environment:
+searcher:
+  data:
+    meilisearch:
+      addr: meilisearch:7700
+miner:
+  data:
