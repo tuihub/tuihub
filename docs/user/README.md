@@ -1,6 +1,6 @@
 ---
 id: index
-title: TuiHub是什么？为什么？
+title: TuiHub 是什么？为什么？
 sidebar_position: 0
 ---
 
