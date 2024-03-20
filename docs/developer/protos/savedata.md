@@ -58,20 +58,20 @@ schema 定义：[v1](https://tuihub.github.io/protos/schemas/savedata/v1.json)�
 ```csharp
 using System.Diagnostics;
 using System.Text.RegularExpressions;
-// filePath is path to executable
-public static bool IsBgi(string filePath)
+// exePath 为游戏可执行文件路径, baseDirPath 为游戏根目录路径
+public static bool IsBgi(string exePath, string? baseDirPath = null)
 {
-    var versionInfo = FileVersionInfo.GetVersionInfo(filePath);
+    var versionInfo = FileVersionInfo.GetVersionInfo(exePath);
     bool result = versionInfo.FileDescription == "Ethornell - BURIKO General Interpreter"
         || versionInfo.InternalName == "Ethornell"
         || versionInfo.LegalTrademarks == "BURIKO General Interpreter"
         || versionInfo.OriginalFilename == "BGI.exe";
     if (!result)
     {
-        var dirPath = Path.GetDirectoryName(filePath);
-        if (dirPath == null) { return false; }
+        baseDirPath ??= Path.GetDirectoryName(exePath);
+        if (baseDirPath == null) { return false; }
         var matches = 0;
-        var files = Directory.EnumerateFiles(dirPath, "*.*", new EnumerationOptions
+        var files = Directory.EnumerateFiles(baseDirPath, "*.*", new EnumerationOptions
         {
             RecurseSubdirectories = true,
             MaxRecursionDepth = 1
@@ -81,7 +81,7 @@ public static bool IsBgi(string filePath)
         if (matches < 3)
         {
             Regex regex = new(@"^data[0-9]{3,5}\.arc$");
-            matches += files.Where(f => (Path.GetDirectoryName(f) == dirPath || Path.GetFileName(dirPath) == "Archive")
+            matches += files.Where(f => (Path.GetDirectoryName(f) == baseDirPath || Path.GetFileName(baseDirPath) == "Archive")
                 && regex.IsMatch(Path.GetFileName(f))).Count();
         }
         result = matches >= 3;
