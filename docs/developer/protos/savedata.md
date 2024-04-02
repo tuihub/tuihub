@@ -108,6 +108,13 @@ public static bool IsBgi(string exePath, string? baseDirPath = null)
 
 ### CatSystem2
 
+识别方法：
+
+  - 文件说明和产品名称为`cs2`
+  - 原始文件名为`cs2.exe`
+  - 游戏安装目录下有`cs2conf.dll`或`cs2conf.dll`，其文件说明和产品名称为`cs2conf`，原始文件名为`cs2conf.dll`
+  - 游戏安装目录下有大量`int`文件，其中`config.int`、`bgm.int`、`image??.int`、`pcm_?.int`、`scene.int`等文件以`KIF`(`4B 49 46`)开头
+
 ### QLIE
 
 ### Entis GLS
@@ -116,11 +123,24 @@ public static bool IsBgi(string exePath, string? baseDirPath = null)
 
 ### YU-RIS
 
+识别方法：
+
+  - 文件说明或产品名称为`YU-RIS Script Engine`
+  - 原始文件名可能为空或`yu-ris.exe`
+  - 产品版本为`0, 2xx, x, x`、`0, 4xx, x, x`或`0, 5xx, x, x`
+  - 游戏安装目录下可能有`YS???.DLL`文件
+  - 游戏安装目录下的`pac`文件夹内有大量`ypf`文件，其中`bn.ypf`、`cg.ypf`等文件以`YPF`(`59 50 46`)开头
+
 ### Ren'Py
 
 ### AdvHD
 
 ### yuka script
+
+识别方法：
+
+  - 游戏安装目录下有`DATA0?.ykc`文件，以`YKC001`(`59 4B 43 30 30 31`)开头
+  - 游戏安装目录下可能有`Start.yks`文件，以`YKS001`(`59 4B 53 30 30 31`)开头
 
 ### adv32/Circus
 
@@ -128,7 +148,13 @@ public static bool IsBgi(string exePath, string? baseDirPath = null)
 
 ### Silky Engine
 
-### ???/Giga
+### NeXAS/Giga
+
+识别方法：
+
+  - 文件说明和产品名称可能为空或`NeXAS`
+  - 原始文件名可能为空或`NeXAS.exe`
+  - 游戏安装目录下有`Script.pac`文件，以`PAC`(`50 41 43`)开头
 
 ### Shiina Rio
 
