@@ -27,7 +27,6 @@ curl -o .env https://docs.tuihub.org/templates//librarian/v0.2.9/.env
 nano docker-compose.yml # Review and set password
 nano server/conf/config.yml # Review and set password
 nano .env # Review and set client env
-docker compose up -d
 ```
 
 ## 启动服务

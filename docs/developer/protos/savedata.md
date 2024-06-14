@@ -47,11 +47,11 @@ schema 定义：[v1](https://tuihub.github.io/protos/schemas/savedata/v1.json)�
 
 识别方法：
 
-  - 文件说明`Ethornell - BURIKO General Interpreter`
-  - 文件版本1.xxx.x.x（x为任意0-9数字）
-  - 合法商标`BURIKO General Interpreter`
-  - 原始文件名`BGI.exe`
-  - 游戏安装目录下或安装目录下的`Archive`文件夹下有大量`data0xxxx.arc`文件（x为任意0-9数字），可能还有`BHVC.exe`，`system.arc`，`sysgrp.arc`，`sysprg.arc`等文件
+- 文件说明`Ethornell - BURIKO General Interpreter`
+- 文件版本 1.xxx.x.x（x 为任意 0-9 数字）
+- 合法商标`BURIKO General Interpreter`
+- 原始文件名`BGI.exe`
+- 游戏安装目录下或安装目录下的`Archive`文件夹下有大量`data0xxxx.arc`文件（x 为任意 0-9 数字），可能还有`BHVC.exe`，`system.arc`，`sysgrp.arc`，`sysprg.arc`等文件
 
 程序化识别：
 
@@ -92,9 +92,9 @@ public static bool IsBgi(string exePath, string? baseDirPath = null)
 
 存档位置：
 
-  - 一般为一个文件（储存进度、设置等）和一个文件夹（文件对应存档槽位）
-  - 文件一般在游戏安装目录下的`BGI.gdb`，部分汉化程序可能会更改名称（如`BGI.chs`等）
-  - 文件夹一般在游戏安装目录下`UserData`文件夹，部分汉化程序可能会更改名称（如`Data_CHS`等）
+- 一般为一个文件（储存进度、设置等）和一个文件夹（文件对应存档槽位）
+- 文件一般在游戏安装目录下的`BGI.gdb`，部分汉化程序可能会更改名称（如`BGI.chs`等）
+- 文件夹一般在游戏安装目录下`UserData`文件夹，部分汉化程序可能会更改名称（如`Data_CHS`等）
 
 存档配置文件示例：[链接](https://docs.tuihub.org/savedata-configs/bgi.json)
 
@@ -110,10 +110,10 @@ public static bool IsBgi(string exePath, string? baseDirPath = null)
 
 识别方法：
 
-  - 文件说明和产品名称为`cs2`
-  - 原始文件名为`cs2.exe`
-  - 游戏安装目录下有`cs2conf.dll`或`cs2conf.dll`，其文件说明和产品名称为`cs2conf`，原始文件名为`cs2conf.dll`
-  - 游戏安装目录下有大量`int`文件，其中`config.int`、`bgm.int`、`image??.int`、`pcm_?.int`、`scene.int`等文件以`KIF`(`4B 49 46`)开头
+- 文件说明和产品名称为`cs2`
+- 原始文件名为`cs2.exe`
+- 游戏安装目录下有`cs2conf.dll`或`cs2conf.dll`，其文件说明和产品名称为`cs2conf`，原始文件名为`cs2conf.dll`
+- 游戏安装目录下有大量`int`文件，其中`config.int`、`bgm.int`、`image??.int`、`pcm_?.int`、`scene.int`等文件以`KIF`(`4B 49 46`)开头
 
 ### QLIE
 
@@ -125,11 +125,11 @@ public static bool IsBgi(string exePath, string? baseDirPath = null)
 
 识别方法：
 
-  - 文件说明或产品名称为`YU-RIS Script Engine`
-  - 原始文件名可能为空或`yu-ris.exe`
-  - 产品版本为`0, 2xx, x, x`、`0, 4xx, x, x`或`0, 5xx, x, x`
-  - 游戏安装目录下可能有`YS???.DLL`文件
-  - 游戏安装目录下的`pac`文件夹内有大量`ypf`文件，其中`bn.ypf`、`cg.ypf`等文件以`YPF`(`59 50 46`)开头
+- 文件说明或产品名称为`YU-RIS Script Engine`
+- 原始文件名可能为空或`yu-ris.exe`
+- 产品版本为`0, 2xx, x, x`、`0, 4xx, x, x`或`0, 5xx, x, x`
+- 游戏安装目录下可能有`YS???.DLL`文件
+- 游戏安装目录下的`pac`文件夹内有大量`ypf`文件，其中`bn.ypf`、`cg.ypf`等文件以`YPF`(`59 50 46`)开头
 
 ### Ren'Py
 
@@ -139,8 +139,8 @@ public static bool IsBgi(string exePath, string? baseDirPath = null)
 
 识别方法：
 
-  - 游戏安装目录下有`DATA0?.ykc`文件，以`YKC001`(`59 4B 43 30 30 31`)开头
-  - 游戏安装目录下可能有`Start.yks`文件，以`YKS001`(`59 4B 53 30 30 31`)开头
+- 游戏安装目录下有`DATA0?.ykc`文件，以`YKC001`(`59 4B 43 30 30 31`)开头
+- 游戏安装目录下可能有`Start.yks`文件，以`YKS001`(`59 4B 53 30 30 31`)开头
 
 ### adv32/Circus
 
@@ -152,9 +152,9 @@ public static bool IsBgi(string exePath, string? baseDirPath = null)
 
 识别方法：
 
-  - 文件说明和产品名称可能为空或`NeXAS`
-  - 原始文件名可能为空或`NeXAS.exe`
-  - 游戏安装目录下有`Script.pac`文件，以`PAC`(`50 41 43`)开头
+- 文件说明和产品名称可能为空或`NeXAS`
+- 原始文件名可能为空或`NeXAS.exe`
+- 游戏安装目录下有`Script.pac`文件，以`PAC`(`50 41 43`)开头
 
 ### Shiina Rio
 
