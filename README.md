@@ -1,23 +1,11 @@
-![TuiHub Logo](./static/img/social-card.jpg)
+<h1 align="center">
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="./static/img/main-dark.webp">
+  <img alt="TuiHub" src="./static/img/main.webp">
+</picture>
+</h1>
 
-# [docs.tuihub.org](https://docs.tuihub.org)
+## Documentation
 
+Documentation available at [docs.tuihub.org](https://docs.tuihub.org/).  
 This site is built with [Docusaurus](https://docusaurus.io/). The documentation is written in Markdown and located in the `docs/` directory. See the [Docusaurus documentation](https://docusaurus.io/docs/markdown-features) for supported markdown features.
-
-For local preview, install node.js and run:
-
-```bash
-npm install
-npm start
-```
-
-## Linting
-
-To lint the markdown files, run:
-
-```bash
-# CommonMark
-npm run lint
-# Simplified Chinese document writing standard
-npm run lint:sc
-```
