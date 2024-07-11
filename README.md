@@ -1,7 +1,7 @@
 <h1 align="center">
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="static/img/main-dark.webp">
-  <img alt="TuiHub" src="static/img/main.webp">
+  <source media="(prefers-color-scheme: dark)" srcset="static/img/main-dark.webp" width="480">
+  <img alt="TuiHub" src="static/img/main.webp" width="480">
 </picture>
 </h1>
 
