@@ -20,9 +20,15 @@
 
 [![Go Server](https://img.shields.io/badge/Go-Server-00ADD8.svg?logo=go&logoColor=white)](https://github.com/tuihub/librarian)
 [![Server Version](https://img.shields.io/github/v/release/tuihub/librarian.svg?include_prereleases)](https://github.com/tuihub/librarian/releases/latest)
+![arm Supported](https://img.shields.io/badge/arm-Supported-00ADD8?logo=arm&logoColor=white)
+![linux](https://img.shields.io/badge/linux-FCC624?logo=linux&logoColor=black)
+![Windows](https://img.shields.io/badge/Windows-0078D6?logo=windows&logoColor=white)
 
 [![Flutter Client](https://img.shields.io/badge/Flutter-Client-02569B.svg?logo=flutter&logoColor=white)](https://github.com/tuihub/waiter)
 [![Client Version](https://img.shields.io/github/v/release/tuihub/waiter.svg?include_prereleases)](https://github.com/tuihub/waiter/releases/latest)
+![Windows](https://img.shields.io/badge/Windows-0078D6?logo=windows&logoColor=white)
+![Android](https://img.shields.io/badge/Android-3DDC84?logo=android&logoColor=white)
+![Web](https://img.shields.io/badge/Web-4285F4?logo=google-chrome&logoColor=white)
 
 TuiHub is a free and open-source toolkit for managing your data.
 
@@ -166,7 +172,7 @@ The documentation is written in Markdown and located in the `docs/` directory.
 
 ## Star History
 
-<a href="https://star-history.com/#tuihub/tuihub&tuihub/protos&tuihub/waiter&tuihub/librarian&Date">
+<a href="https://star-history.com/#tuihub/tuihub&tuihub/librarian&tuihub/waiter&tuihub/protos&Date">
  <picture>
    <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=tuihub/tuihub,tuihub/librarian,tuihub/waiter,tuihub/protos&type=Date&theme=dark" />
    <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=tuihub/tuihub,tuihub/librarian,tuihub/waiter,tuihub/protos&type=Date" />
