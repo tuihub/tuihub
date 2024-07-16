@@ -1,8 +1,8 @@
-| **This software is currently in alpha phase.**   |
-|-----------------------------------------------------------------|
+| **本软件目前处于 alpha 阶段。** |
+|---------------------|
 
-| English | [简体中文](README.zh-CN.md) |
-|---------|-----------------------------|
+| [English](README.md) | 简体中文 |
+|----------------------|------|
 
 <h1 align="center">
 <picture>
@@ -24,58 +24,58 @@
 [![Flutter Client](https://img.shields.io/badge/Flutter-Client-02569B.svg?logo=flutter&logoColor=white)](https://github.com/tuihub/waiter)
 [![Client Version](https://img.shields.io/github/v/release/tuihub/waiter.svg?include_prereleases)](https://github.com/tuihub/waiter/releases/latest)
 
-TuiHub is a free and open-source toolkit for managing your data.
+TuiHub 是一个用于管理数据的免费开源工具集。
 
-## Use Cases
+## 用例
 
-*Some of the features are still under development.*
+*某些功能仍在开发中。*
 
-### Feed collect and distribute
+### 信息流收集和分发
 
-TuiHub can collect feeds from various sources,
-process them with user customize rules,
-and distribute to various destinations.
-**Collecting, processing, and distributing logic are all extensible.**
+TuiHub 可以从各种来源收集信息流，
+使用用户自定义规则处理它们，
+并将其分发到各种目的地。
+**收集、处理和分发逻辑都是可扩展的。**
 
-The Plugin mechanism allows you to deploy main service near you,
-deploy collecting and distributing services at the far end.
+插件机制允许您在您附近部署主要服务，
+在远端部署收集和分发服务。
 
 ```mermaid
 graph LR
-    subgraph Original[Original Source]
+    subgraph Original[原始来源]
         RSS
-        non-RSS
+        non-RSS[非RSS]
         Telegram
     end
-    subgraph Generator
+    subgraph Generator[RSS生成器]
         RSSHub
-        more
+        more[其他]
     end
     subgraph TuiHub
-        subgraph User[User Device]
-            Waiter[Client]
-            WaiterOut[Client Built-in Reader]
+        subgraph User[用户设备]
+            Waiter[客户端]
+            WaiterOut[客户端内置阅读器]
         end
-        subgraph Main[Local Server]
-            subgraph Sephirah[main service]
-                In[Input]
-                Processing[Custom Processing]
-                Out[Output]
+        subgraph Main[本地服务器]
+            subgraph Sephirah[主服务]
+                In[输入]
+                Processing[自定义处理]
+                Out[输出]
                 In-->Processing
                 Processing-->Out
             end
             PorterRSS[tuihub-rss]
             PorterRSSOut[tuihub-rss]
         end
-        subgraph Remote[Remote Server]
+        subgraph Remote[远程服务器]
             PorterRSSRemote[tuihub-rss]
             PorterTelegram[tuihub-telegram]
             PorterRSSOutRemote[tuihub-rss]
             PorterTelegramOut[tuihub-telegram]
         end
     end
-    subgraph Destination 
-        RSSReader[RSS Reader]
+    subgraph Destination[目的地]
+        RSSReader[RSS阅读器]
         TelegramOut[Telegram]
     end
     non-RSS-->RSSHub
@@ -100,48 +100,47 @@ graph LR
     PorterTelegramOut-->TelegramOut
 ```
 
-### Game Library Management
+### 游戏管理
 
-TuiHub can manage your game (including install files and save files)
-and provide a user interface similar to Steam.
-**Especially for those who have a large storage for archiving games.**
+TuiHub 可以管理你的游戏(包括安装文件和保存文件)，
+并提供类似于 Steam 的用户界面。
+**特别是对于那些准备了大量存储空间存档游戏的用户。**
 
-The Plugin mechanism allows you to keep current storage method
-or keep TuiHub read-only to your game storage.
+插件机制允许你保持当前的存储方法或使 TuiHub 对你的游戏存储只读。
 
 ```mermaid
 graph LR
-    subgraph Metadata[Metadata Source]
+    subgraph Metadata[元数据来源]
         Steam
         Metacritic
     end
     subgraph TuiHub
-        subgraph User[User Device]
-            Waiter[Client]
-            Game[Game Install]
-            SteamClient[Steam Client]
-            Game2[Game Install]
+        subgraph User[用户设备]
+            Waiter[客户端]
+            Game[游戏]
+            SteamClient[Steam客户端]
+            Game2[游戏]
         end
-        subgraph Main[Local Server]
-            subgraph Sephirah[main service]
-                In[Input]
-                Processing[Match Information]
+        subgraph Main[本地服务器]
+            subgraph Sephirah[主服务]
+                In[输入]
+                Processing[匹配信息]
                 In-->Processing
             end
         end
-        subgraph Remote[Remote Server]
+        subgraph Remote[远程服务器]
             PorterSteam[tuihub-steam]
             PorterMetacritic[tuihub-metacritic]
         end
     end
-    subgraph Storage[Storage Device]
-        Sentinel[Data Watcher]
-        Download[Download Server]
+    subgraph Storage[存储设备]
+        Sentinel[数据监视]
+        Download[下载服务器]
     end
     Sentinel-->Sephirah
-    Download-->|Download|Waiter
-    Waiter-->|Manage|Game
-    Waiter-->|Call|SteamClient
+    Download-->|下载|Waiter
+    Waiter-->|管理|Game
+    Waiter-->|调用|SteamClient
     SteamClient-->Game2
     Sephirah-->Waiter
     Steam-->PorterSteam
@@ -150,21 +149,21 @@ graph LR
     PorterMetacritic-->Sephirah
 ```
 
-### What's more?
+### 更多
 
-Some ideas that may be achieved or implemented in the future:
+未来可能实现或实施的一些想法：
 
-- Use Feed functions to sync chat history between different platforms in real-time?
-- Use Feed functions to subscribe game news and updates that can display in the game library, just like Steam?
-- Customize and export a private download feed to downloader that supports RSS? e.g. auto download telegram files?
+- 使用 Feed 功能在不同平台之间实时同步聊天记录？
+- 使用 Feed 功能来订阅可以在游戏库中显示的游戏新闻和更新，就像 Steam 一样？
+- 自定义和导出一个私人下载 RSS 到支持的下载器？比如自动下载 Telegram 文件？
 
-## Documentation
+## 文档
 
-Documentation available at **[https://docs.tuihub.org](https://docs.tuihub.org/)**.  
-This site is built with [Docusaurus](https://docusaurus.io/).
-The documentation is written in Markdown and located in the `docs/` directory.
+文档位于 **[https://docs.tuihub.org](https://docs.tuihub.org/)**。
+该站点使用 [Docusaurus](https://docusaurus.io/) 构建。
+文档使用 Markdown 编写，位于 `docs/` 目录。
 
-## Star History
+## Star 历史
 
 <a href="https://star-history.com/#tuihub/tuihub&tuihub/protos&tuihub/waiter&tuihub/librarian&Date">
  <picture>
