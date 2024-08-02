@@ -1,0 +1,16 @@
+{
+    servers {
+        protocols h1 h2c
+    }
+}
+:80 {
+    @grpcwebHeader header_regexp Content-Type ^application/grpc-web.*
+    @grpcHeader header_regexp Content-Type ^application/grpc.*
+    @others not header_regexp Content-Type "^(application/grpc(-web)?).*"
+
+    route {
+        reverse_proxy @grpcwebHeader http://librarian:10011
+        reverse_proxy @grpcHeader h2c://librarian:10010
+        reverse_proxy @others http://librarian:10019
+    }
+}
