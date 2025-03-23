@@ -26,7 +26,7 @@ sidebar_position: 1
 SQL 数据库用于保存服务端数据，
 目前支持的数据库有：
 
-- PostgreSQL
+- [PostgreSQL](https://www.postgresql.org/)
 - SQLite（内置） - 性能差
 - SQLite in memory（默认） - 无法保存数据，仅用于测试
 
@@ -35,8 +35,8 @@ SQL 数据库用于保存服务端数据，
 消息队列用于消除请求尖峰，提高服务端稳定性，
 目前支持的消息队列有：
 
-- Redis - 仅在使用 Redis 缓存时可用
-- PostgreSQL - 仅在使用 PostgreSQL 数据库时可用，严重影响数据库性能
+- [Redis](https://redis.io/) - 仅在使用 Redis 缓存时可用
+- [PostgreSQL](https://www.postgresql.org/) - 仅在使用 PostgreSQL 数据库时可用，严重影响数据库性能
 - memory（默认）
 
 ### 缓存
@@ -44,7 +44,7 @@ SQL 数据库用于保存服务端数据，
 缓存用于提高服务端性能，
 目前支持的缓存有：
 
-- Redis
+- [Redis](https://redis.io/)
 - memory（默认）
 
 ### 对象存储
@@ -52,7 +52,9 @@ SQL 数据库用于保存服务端数据，
 对象存储用于保存文件，
 目前支持的对象存储有：
 
-- MinIO
+- [MinIO](https://min.io/)
+- file（内置） - 保存在服务端数据目录
+- memory（内置） - 无法保存数据，仅用于测试
 - 关闭（默认） - 将会禁用文件相关功能
 
 ### 服务发现
@@ -60,8 +62,8 @@ SQL 数据库用于保存服务端数据，
 服务发现用于服务端与插件的通信，
 目前支持的服务发现有：
 
-- consul
-- 静态 - 需要重启服务端才能应用更改
+- [Consul](https://www.consul.io/)
+- 静态（内置） - 需要重启服务端才能应用更改
 - 关闭（默认） - 将会禁用插件相关功能
 
 ### 全文搜索引擎
@@ -69,7 +71,7 @@ SQL 数据库用于保存服务端数据，
 全文搜索引擎用于搜索功能，
 目前支持的全文搜索引擎有：
 
-- MeiliSearch
+- [MeiliSearch](https://www.meilisearch.com/)
 - bleve（内置）- 效果差
 - 关闭（默认） - 将会禁用搜索相关功能
 
@@ -78,5 +80,5 @@ SQL 数据库用于保存服务端数据，
 反向代理用于将静态 HTTP 服务、Grpc 服务和 Grpc-Web 服务聚合为一个端口，
 目前提供以下反向代理服务器的模板文件：
 
-- Caddy v2
-- Nginx（不开启 TLS 需要 Nginx 1.25.1 以上）
+- [Caddy](https://caddyserver.com/) v2
+- [Nginx](https://nginx.org/)（不开启 TLS 需要 Nginx 1.25.1 以上）
