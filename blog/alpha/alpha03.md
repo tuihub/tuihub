@@ -1,6 +1,7 @@
 ---
-title: Alpha03
+title: Alpha03-订阅自动化
 authors: muzhou233
+date: 2024-09-28
 ---
 
 本次测试的主要内容是订阅自动化

@@ -8,9 +8,7 @@ sidebar_position: 0
 
 - `Librarian` 服务端
   - `Sephirah` 核心逻辑，`Librarian`的访问入口，不会向外部系统发出连接
-  - `Mapper` 图数据库封装
   - `Porter` 外部系统接口封装
-  - `Searcher` 搜索引擎封装
 - `Waiter` 客户端
 - `Sentinel` 监控端，用于特定功能
 
@@ -26,7 +24,7 @@ sidebar_position: 0
 - `Binah` 二进制传输模块，所有二进制数据均通过此模块传输
 - `Netzach` 通知与推送模块，提供推送端点配置，通知路由等功能
 - `Chesed` 截图管理模块，提供截图管理与搜索功能
-- `Angela` 当功能逻辑需要跨越不同模块实现时，放入此模块中以标识该部分代码具有较高的耦合度
+- `Kether` 当功能逻辑需要跨越不同模块实现时，放入此模块中以标识该部分代码具有较高的耦合度
 
 ## 架构总览
 
@@ -59,16 +57,6 @@ graph
             Netzach --> MQ
             Binah --> OSS
         end
-        subgraph Mapper Service
-            Mapper[Mapper \n encapsulate graph operations]
-            GraphDatabase
-        end
-        subgraph Searcher Service
-            Searcher[Searcher \n encapsulate id generate and search operations]
-            SearchEngine
-        end
-        Sephirah --> Mapper
-        Sephirah --> Searcher
     end
     subgraph Client
         Waiter[Waiter \n client application]

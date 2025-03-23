@@ -8,11 +8,10 @@ sidebar_position: 1
 
 权限设计使用简单的硬编码的“用户-角色-权限”结构
 
-用户分`Admin`、`Normal`、`Sentinel`三种角色：
+用户分`Admin`、`Normal`两种角色：
 
 - `Admin` 能够访问除个人敏感数据外的所有数据
 - `Normal` 能够访问自己的和其他人公开的数据
-- `Sentinel` 扫描器专用，仅能访问非常有限的接口
 
 ## 用户鉴权
 
